@@ -1,1 +1,1 @@
-<template>Signup / s'inscrire</template>
+<template>Signup</template>
