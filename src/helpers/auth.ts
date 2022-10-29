@@ -4,8 +4,8 @@ import { signInWithEmailAndPassword } from 'firebase/auth'
 //======================================================================= Signin
 
 // Email
-export const signinEmail = (email: string, password: string) => {
-  signInWithEmailAndPassword(auth, email, password)
+export const signinEmail = (form: any) => {
+  signInWithEmailAndPassword(auth, form.email, form.password)
     .then((userCredential: any) => {
       const user = userCredential.user
       console.log(user)

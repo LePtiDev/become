@@ -1,8 +1,8 @@
 // Imports
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
-import Signin from '@/pages/auth/Signin.vue'
-import Signup from '@/pages/auth/Signup.vue'
+import Login from '@/pages/auth/Login.vue'
+import Register from '@/pages/auth/Register.vue'
 import { auth } from '@/helpers/firebase.ts'
 import { onAuthStateChanged } from 'firebase/auth'
 
@@ -11,8 +11,8 @@ const history = isServer ? createMemoryHistory() : createWebHistory()
 
 const routes = [
   { path: '/', name: 'home', component: Home, meta: { requiresAuth: true } },
-  { path: '/signin', name: 'signin', component: Signin },
-  { path: '/signup', name: 'signup', component: Signup },
+  { path: '/auth/login', name: 'login', component: Login },
+  { path: '/auth/register', name: 'register', component: Register },
 ]
 
 const router = createRouter({

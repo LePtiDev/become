@@ -5,7 +5,7 @@
       <span v-if="hint" class="text-sm text-gray-500" id="email-optional">{{ hint }}</span>
     </div>
     <div class="relative rounded-md shadow-sm">
-      <input
+      <Field
         :id="name"
         :name="name"
         :type="type"
@@ -18,7 +18,7 @@
         :class="
           error
             ? 'border-red-300 text-red-900 placeholder-red-300 focus:border-red-500 focus:ring-red-500'
-            : 'focus:border-indigo-500 focus:ring-indigo-500 placeholder-gray-400 border-gray-300'
+            : 'focus:border-blue-500 focus:ring-blue-500 placeholder-gray-400 border-gray-300'
         "
       />
       <Transition name="animation-input-error">
@@ -37,6 +37,7 @@
 </template>
 <script lang="ts" setup>
 // Imports
+import { Field } from 'vee-validate'
 import { ExclamationCircleIcon } from '@heroicons/vue/24/outline'
 
 // Props & emits
