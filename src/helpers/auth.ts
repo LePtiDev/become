@@ -1,7 +1,7 @@
 import { auth } from './firebase'
-import { signInWithEmailAndPassword } from 'firebase/auth'
+import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider } from 'firebase/auth'
 
-//======================================================================= Signin
+//======================================================================= Login
 
 // Email
 export const signinEmail = (form: any) => {
@@ -10,9 +10,19 @@ export const signinEmail = (form: any) => {
       const user = userCredential.user
       console.log(user)
     })
-    .catch((error: any) => {
-      const errorCode = error.code
-      const errorMessage = error.message
-      console.log(errorCode, errorMessage)
-    })
+    .catch((error: any) => {})
 }
+
+// Google
+export const signinGoogle = () => {
+  const provider = new GoogleAuthProvider()
+  signInWithPopup(auth, provider)
+    .then((result) => {
+      // User info
+      const user = result.user
+      console.log(user)
+    })
+    .catch((error) => {})
+}
+
+//======================================================================= Register

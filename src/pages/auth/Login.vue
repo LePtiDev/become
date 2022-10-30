@@ -1,11 +1,11 @@
 <template>
-  <div class="flex min-h-full flex-col py-12 px-4 sm:px-6 lg:px-8 justify-between">
+  <div class="layout">
     <div>
-      <h1 class="text-blue-500 text-2xl font-bold">Content de te revoir <span>👋</span></h1>
+      <h1 class="text-blue-500 text-3xl font-bold">Content de te revoir <span>👋</span></h1>
       <p class="text-sm mt-4 text-gray-400">Nous somme content de te revoir. <br />Pour utiliser l'application veuillez vous connecter.</p>
     </div>
 
-    <Form v-slot="{ errors }" @submit="submit">
+    <Form v-slot="{ errors }" @submit="submit" :validation-schema="schema">
       <!-- Inputs -->
       <UiInput class="mt-[34px]" label="Email" type="email" name="email" :error="errors.email" placeholder="Jean.dupont@mail.com" />
       <UiInput class="mt-[24px]" label="Mot de passe" type="password" name="password" :error="errors.password" placeholder="***********" />
@@ -20,36 +20,39 @@
 
       <!-- Other login -->
       <UiSpacer>Autre moyen de connexion</UiSpacer>
-      <div class="flex">
-        <UiButton class="w-full mr-2" type="button" color="secondary">
-          <img class="w-4 mr-2" src="@/assets/images/compagnies/facebook.png" />
-          Facebook
+      <div class="flex flex-col">
+        <UiButton class="w-full mb-4" type="button" color="secondary">
+          <img class="h-4 mr-2 -mt-1" src="@/assets/images/compagnies/apple.svg" />
+          Continuer avec Apple
         </UiButton>
-        <UiButton class="w-full ml-2" type="button" color="secondary">
-          <img class="w-4 mr-2" src="@/assets/images/compagnies/google.png" />
-          Google
+        <UiButton class="w-full" type="button" color="secondary" @click="signinGoogle()">
+          <img class="h-4 mr-2" src="@/assets/images/compagnies/google.png" />
+          Continuer avec Google
         </UiButton>
       </div>
 
       <!-- Go to register -->
-      <p class="text-center my-[32px] text-gray-400">Pas encore de compte ? <router-link class="text-blue-400" to="/auth/register">Créé le</router-link></p>
+      <p class="text-center my-[32px] text-gray-400">Pas encore de compte ? <span class="text-blue-400" @click="animation('register', 'slide-left')">Créé le</span></p>
     </Form>
   </div>
 </template>
 <script lang="ts" setup>
+// Imports
+import { signinEmail, signinGoogle } from '@/helpers/auth.ts'
+import { animation } from '@/helpers/animation.ts'
+import * as yup from 'yup'
+
 // Components
 import UiButton from '@/components/ui/UiButton.vue'
 import UiInput from '@/components/ui/UiInput.vue'
 import UiSpacer from '@/components/ui/UiSpacer.vue'
 import { Form } from 'vee-validate'
 
-// Lib
-import { ref } from 'vue'
-import { signinEmail } from '@/helpers/auth.ts'
-
 // Data
-const email = ref<string>('')
-const password = ref<string>('')
+const schema = yup.object({
+  email: yup.string().required("L'email est requis"),
+  password: yup.string().required('Le mot de passe est requis'),
+})
 
 // Methods
 const submit = (value: any) => {
