@@ -6,11 +6,13 @@
     </div>
 
     <div>
-      <Form @submit="submit">
-        <FormInformations />
-
+      <!-- Login -->
+      <Form v-slot="{ errors }" @submit="signupEmail" :validation-schema="schema">
+        <UiInput label="Email" type="email" name="email" :error="errors.email" placeholder="jean.dupont@mail.com" />
+        <UiInput label="Mot de passe" type="password" name="password" :error="errors.password" placeholder="***********" />
+        <UiInput label="Confirmation du mot de passe" type="password" name="password_confirmation" :error="errors.password_confirmation" placeholder="***********" />
         <!-- Button -->
-        <UiButton class="w-full mt-[34px]" type="button" color="primary">Créé mon compte</UiButton>
+        <UiButton class="w-full mt-[34px]" type="submit" color="primary">Créé mon compte</UiButton>
       </Form>
 
       <!-- Other login -->
@@ -20,7 +22,7 @@
           <img class="h-4 mr-2 -mt-1" src="@/assets/images/compagnies/apple.svg" />
           Continuer avec Apple
         </UiButton>
-        <UiButton class="w-full" type="button" color="secondary" @click="signinGoogle()">
+        <UiButton class="w-full" type="button" color="secondary">
           <img class="h-4 mr-2" src="@/assets/images/compagnies/google.png" />
           Continuer avec Google
         </UiButton>
@@ -35,18 +37,19 @@
   </div>
 </template>
 <script lang="ts" setup>
-// Components
+// Imports
 import { Form } from 'vee-validate'
-import FormInformations from '@/components/auth/FormInformations.vue'
 import UiButton from '@/components/ui/UiButton.vue'
+import UiInput from '@/components/ui/UiInput.vue'
 import UiSpacer from '@/components/ui/UiSpacer.vue'
 import { animation } from '@/helpers/animation.ts'
-
-// Lib
-import { signinEmail, signinGoogle } from '@/helpers/auth.ts'
+import { signupEmail } from '@/helpers/auth.ts'
+import * as yup from 'yup'
 
 // Data
-
-// Methods
-const submit = () => {}
+const schema = yup.object({
+  email: yup.string().required("L'email est requis"),
+  password: yup.string().required('Le mot de passe est requis'),
+  password_confirmation: yup.string().required('La confirmation est requise'),
+})
 </script>

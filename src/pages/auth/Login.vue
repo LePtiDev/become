@@ -41,8 +41,6 @@
 import { signinEmail, signinGoogle } from '@/helpers/auth.ts'
 import { animation } from '@/helpers/animation.ts'
 import * as yup from 'yup'
-
-// Components
 import UiButton from '@/components/ui/UiButton.vue'
 import UiInput from '@/components/ui/UiInput.vue'
 import UiSpacer from '@/components/ui/UiSpacer.vue'
