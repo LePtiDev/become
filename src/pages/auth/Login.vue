@@ -1,11 +1,11 @@
 <template>
   <div class="layout">
-    <div>
+    <div class="mb-8">
       <h1 class="text-blue-500 text-3xl font-bold">Content de te revoir <span>👋</span></h1>
       <p class="text-sm mt-4 text-gray-400">Nous somme content de te revoir. <br />Pour utiliser l'application veuillez vous connecter.</p>
     </div>
 
-    <Form v-slot="{ errors }" @submit="submit" :validation-schema="schema">
+    <Form v-slot="{ errors }" @submit="signinEmail" :validation-schema="schema">
       <!-- Inputs -->
       <UiInput class="mt-[34px]" label="Email" type="email" name="email" :error="errors.email" placeholder="Jean.dupont@mail.com" />
       <UiInput class="mt-[24px]" label="Mot de passe" type="password" name="password" :error="errors.password" placeholder="***********" />
@@ -51,10 +51,4 @@ const schema = yup.object({
   email: yup.string().required("L'email est requis"),
   password: yup.string().required('Le mot de passe est requis'),
 })
-
-// Methods
-const submit = (value: any) => {
-  console.log(value)
-  //signinEmail(email.value, password.value)
-}
 </script>

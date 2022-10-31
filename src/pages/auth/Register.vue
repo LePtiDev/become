@@ -1,6 +1,6 @@
 <template>
   <div class="layout">
-    <div>
+    <div class="mb-8">
       <h1 class="text-blue-500 text-3xl font-bold">Créer un compte <span>🔥</span></h1>
       <p class="text-sm mt-4 text-gray-400">Nous somme content de vous voir. <br />Pour utiliser l'application veuillez vous connecter.</p>
     </div>

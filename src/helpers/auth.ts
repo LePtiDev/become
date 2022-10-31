@@ -34,7 +34,7 @@ export const signupEmail = (form: any) => {
     .then((userCredential: any) => {
       const user = userCredential.user
       createOne('users', { id: user.uid })
-      animation('home', 'slide-left')
+      animation('personal-information', 'slide-left')
     })
     .catch((error: any) => {})
 }
