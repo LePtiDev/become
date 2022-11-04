@@ -1,10 +1,9 @@
 import { auth } from './firebase'
 import { signInWithEmailAndPassword, signInWithPopup, GoogleAuthProvider, createUserWithEmailAndPassword } from 'firebase/auth'
-import { createOne } from './data'
+import { createById } from './data'
 import { animation } from './animation'
 
 //======================================================================= Login
-
 // Email
 export const signinEmail = (form: any) => {
   signInWithEmailAndPassword(auth, form.email, form.password)
@@ -27,13 +26,12 @@ export const signinGoogle = () => {
 }
 
 //======================================================================= Register
-
 // Email
 export const signupEmail = (form: any) => {
   createUserWithEmailAndPassword(auth, form.email, form.password)
     .then((userCredential: any) => {
       const user = userCredential.user
-      createOne('users', { id: user.uid })
+      createById('users', user.uid, { email: user.email })
       animation('personal-information', 'slide-left')
     })
     .catch((error: any) => {})

@@ -10,7 +10,9 @@
 
 .layout {
   width: 100%;
-  min-height: 100vh;
+  height: 100vh;
   overflow-y: scroll;
   padding: 50px 16px;
+  display: flex;
+  flex-direction: column;
 }

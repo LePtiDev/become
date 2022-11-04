@@ -42,8 +42,6 @@ router.beforeEach((to, from, next) => {
         next()
       }
     }
-
-    // user && (to.name === 'login' || to.name === 'forgot' || to.name === 'register')
   })
 })
 
