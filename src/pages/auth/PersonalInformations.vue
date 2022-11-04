@@ -20,7 +20,7 @@
   </div>
 </template>
 <script lang="ts" setup>
-import { updatePersonalInformations } from '@/helpers/user.ts'
+import { updatePersonalInformations } from '@/helpers/user'
 import { Form } from 'vee-validate'
 import * as yup from 'yup'
 import { animation } from '../../helpers/animation'

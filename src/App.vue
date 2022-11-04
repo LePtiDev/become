@@ -10,8 +10,6 @@
 <script setup lang="ts">
 // Imports
 import LayoutGlobal from '@/layouts/LayoutGlobal.vue'
-import { ref } from 'vue'
-import router from '@/router/index.ts'
 </script>
 <style>
 .slide-left-enter-active,

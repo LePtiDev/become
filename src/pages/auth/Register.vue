@@ -45,8 +45,8 @@ import { Form } from 'vee-validate'
 import UiButton from '@/components/ui/UiButton.vue'
 import UiInput from '@/components/ui/UiInput.vue'
 import UiSpacer from '@/components/ui/UiSpacer.vue'
-import { animation } from '@/helpers/animation.ts'
-import { signupEmail } from '@/helpers/auth.ts'
+import { animation } from '@/helpers/animation'
+import { signupEmail } from '@/helpers/auth'
 import * as yup from 'yup'
 
 // Data

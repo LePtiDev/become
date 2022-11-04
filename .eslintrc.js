@@ -5,5 +5,6 @@ module.exports = {
     'vue/multi-word-component-names': 0,
     'vue/no-mutating-props': 0,
     'vue/script-setup-uses-vars': 'error',
+    '@typescript-eslint/ban-ts-comment': 'off',
   },
 }

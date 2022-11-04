@@ -11,8 +11,8 @@
     "dev": "vite --host",
     "build": "vue-tsc --noEmit && vite build",
     "preview": "vite preview",
-    "ionic:build": "npm run build",
-    "ionic:serve": "npm run dev"
+    "ionic:build": "pnpm run build",
+    "ionic:serve": "pnpm run dev"
   },
   "dependencies": {
     "@capacitor/app": "4.1.0",

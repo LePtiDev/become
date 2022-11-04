@@ -1,13 +1,13 @@
 // Imports
 import { getByID, updateByID } from './data'
-import type { User } from '@/interface/user.ts'
+import type { User } from '@/interfaces/user'
 
-import { useStore } from '@/store/index.ts'
+import { useStore } from '@/store/index'
 import { animation } from './animation'
 
 export const setUser = async (id: string) => {
   // Data
-  const user: User = await getByID('users', id)
+  const user: any = await getByID('users', id)
   const store = useStore()
 
   // Set store
@@ -15,8 +15,7 @@ export const setUser = async (id: string) => {
   store.user = user.data()
 }
 
-export const checkUser = (user: User) => {
-  console.log(user)
+export const checkUser = (user: any) => {
   if (!user.firstname) {
     animation('personal-informations', 'slide-left')
   } else if (!user.school_name) {
@@ -29,5 +28,5 @@ export const checkUser = (user: User) => {
 export const updatePersonalInformations = async (form: any) => {
   // Data
   const store = useStore()
-  const user: User = await updateByID('users', store.user.id, form)
+  const user: any = await updateByID('users', store.user.id, form)
 }

@@ -1,16 +1,16 @@
 // Imports
 import { createRouter, createMemoryHistory, createWebHistory } from 'vue-router'
 import Home from '@/pages/Home.vue'
-import { setUser } from '@/helpers/user.ts'
+import { setUser } from '@/helpers/user'
 // Components
 import Login from '@/pages/auth/Login.vue'
 import Register from '@/pages/auth/Register.vue'
 import Forgot from '@/pages/auth/Forgot.vue'
 import PersonalInformations from '@/pages/auth/PersonalInformations.vue'
 import SchoolInformations from '@/pages/auth/SchoolInformations.vue'
-import { useStore } from '@/store/index.ts'
+import { useStore } from '@/store/index'
 
-import { auth } from '@/helpers/firebase.ts'
+import { auth } from '@/helpers/firebase'
 import { onAuthStateChanged } from 'firebase/auth'
 
 const routes = [

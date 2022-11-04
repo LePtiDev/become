@@ -42,8 +42,8 @@
 </template>
 <script lang="ts" setup>
 // Imports
-import { signinEmail, signinGoogle } from '@/helpers/auth.ts'
-import { animation } from '@/helpers/animation.ts'
+import { signinEmail, signinGoogle } from '@/helpers/auth'
+import { animation } from '@/helpers/animation'
 import * as yup from 'yup'
 import UiButton from '@/components/ui/UiButton.vue'
 import UiInput from '@/components/ui/UiInput.vue'
