@@ -1,0 +1,7 @@
+{
+  "name": "become",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "custom"
+}
